@@ -15,8 +15,8 @@ namespace ApiAzureDatabase.Controllers
         }
 
         [HttpGet]
-        [Route("api/Contact")]
-        public ActionResult<IEnumerable<Contact>> GetAction()
+        /*[Route("api/Contact")]*/
+        public ActionResult<IEnumerable<Contact>> Get()
         {
             return contactContext.ContactSet.ToList();
         }
