@@ -58,7 +58,7 @@ namespace ApiAzureDatabase.Controllers
 
         [HttpDelete]
         [Route("api/Contact/{id}")]
-         public IActionResult Delete(int id)
+         public IActionResult Delete(string id)
         {
             var selectedElement = contactContext.ContactSet.Find(id);
             contactContext.ContactSet.Remove(selectedElement);
