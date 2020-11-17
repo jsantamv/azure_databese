@@ -7,7 +7,7 @@ namespace ApiAzureDatabase.Controllers
 {
     public class ContactController : Controller
     {
-        private ContactContext contactContext; 
+        private ContactContext contactContext;
 
         public ContactController(ContactContext context)
         {
@@ -21,10 +21,20 @@ namespace ApiAzureDatabase.Controllers
             return contactContext.ContactSet.ToList();
         }
 
+        [HttpGet]
+        [Route("api/Contact/{id}")]
+        public ActionResult<Contact> Get(string id)
+        {
+            var selected = (from c in contactContext.ContactSet
+                           where c.Identificador == id
+                           select c).FirstOrDefault();
+
+            return selected;
+        }
+
         ~ContactController()
         {
             contactContext.Dispose();
-            
         }
     }
 }
