@@ -33,7 +33,7 @@ namespace ApiAzureDatabase.Controllers
         }
 
         [HttpPost]
-        //[Route("api/Contact/{id}")]
+        [Route("api/Contact/")]
         public IActionResult Post([FromBody] Contact value)
         {
             Contact newContact = value;
