@@ -32,6 +32,18 @@ namespace ApiAzureDatabase.Controllers
             return selected;
         }
 
+        [HttpPost]
+        //[Route("api/Contact/{id}")]
+        public IActionResult Post([FromBody] Contact value)
+        {
+            Contact newContact = value;
+            contactContext.ContactSet.Add(newContact);
+            contactContext.SaveChanges();
+            return Ok("Contacto almacenado");
+        }
+
+
+
         ~ContactController()
         {
             contactContext.Dispose();
